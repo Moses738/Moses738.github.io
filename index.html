@@ -219,7 +219,7 @@
     <div class="wrap">
       <a class="logo" href="#top"><i>MK</i>Moses K</a>
       <nav class="links" aria-label="Sections">
-        <a href="#what">What I do</a><a href="#ventures">Ventures</a><a href="#training">Training</a><a href="#experience">Experience</a><a href="#projects">Projects</a>
+        <a href="#what">What I do</a><a href="#ventures">Ventures</a><a href="#training">Training</a><a href="#experience">Experience</a><a href="#skills">Skills</a>
       </nav>
       <div class="nav-r">
         <button class="icon-btn" id="theme" type="button" aria-label="Switch light or dark theme">◐</button>
@@ -354,13 +354,6 @@
       <ol class="tl" id="jobs"></ol>
     </section>
 
-    <!-- PROJECTS -->
-    <section class="sec" id="projects">
-      <div class="sec-head rv"><span class="eyebrow">Open source</span><h2>Data science projects</h2><p>Notebooks and apps on GitHub, from teaching material to end-to-end ML.</p></div>
-      <div class="projs" id="projs"></div>
-      <div class="more"><a class="btn soft" href="https://github.com/Moses738?tab=repositories" target="_blank" rel="noopener">All repositories on GitHub →</a></div>
-    </section>
-
     <!-- SKILLS / CREDENTIALS / EDUCATION -->
     <section class="sec" id="skills">
       <div class="sec-head rv"><span class="eyebrow">Skills &amp; credentials</span><h2>What I bring</h2></div>
@@ -417,15 +410,6 @@
       { role: 'Process Executive, Data', co: 'Cognizant', start: [2021, 5], end: [2022, 7], note: 'Hyderabad' },
       { role: 'Data Science Intern', co: 'The Sparks Foundation', start: [2020, 10], end: [2020, 11], note: '' },
     ];
-    // Public GitHub projects (descriptions from each repository's README)
-    var PROJECTS = [
-      { name: 'Machine Learning notebooks for students', repo: 'Machine-Learning', desc: 'Tutorial notebooks from the machine learning classes I taught at Gudlavalleru Engineering College, shared as a starting point for anyone new to ML.', tags: ['Teaching', 'Machine learning'] },
-      { name: 'College Placement Prediction', repo: 'College-Placement-Problem', desc: 'Predicts whether a student gets placed from their profile: EDA, ML models and a Flask web app.', tags: ['Classification', 'Flask'] },
-      { name: 'Web Scraping Projects', repo: 'Web-scraping-Projects', desc: 'Scraped bikes4sale.in and IMDb, then analysed what drives bike prices and how movie gross changes over the years.', tags: ['Web scraping', 'EDA'] },
-      { name: 'Machine Learning on the Fish dataset', repo: 'Machine-Learning-on-a-Fish-dataset', desc: 'Model building on the Fish dataset, served through a small Flask web app.', tags: ['Machine learning', 'Flask'] },
-      { name: 'Bot Behaviour Classification', repo: 'Bot_behavioranalysis_classification', desc: 'Analysing account behaviour to classify bot accounts.', tags: ['Classification'] },
-      { name: 'E-commerce Purchases Analysis', repo: 'Ecommerce-Purchases-Analysis', desc: 'Analysing e-commerce purchases with pandas, from basic to advanced questions.', tags: ['pandas', 'Analysis'] },
-    ];
 
     var M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
     var d = new Date(), cur = [d.getFullYear(), d.getMonth() + 1];
@@ -440,14 +424,6 @@
       var mid = el('div'); mid.appendChild(el('h3', null, j.role)); mid.appendChild(el('div', 'co', j.co)); if (j.note) mid.appendChild(el('p', null, j.note));
       li.appendChild(when); li.appendChild(mid); li.appendChild(j.end ? el('span') : el('span', 'now', 'Current'));
       ol.appendChild(li);
-    });
-
-    var grid = document.getElementById('projs');
-    PROJECTS.forEach(function (p) {
-      var a = el('a', 'card proj rv'); a.href = 'https://github.com/Moses738/' + p.repo; a.target = '_blank'; a.rel = 'noopener';
-      a.appendChild(el('h3', null, p.name)); a.appendChild(el('p', null, p.desc));
-      var meta = el('div', 'meta'); p.tags.forEach(function (t) { meta.appendChild(el('span', 'tagc', t)); }); a.appendChild(meta);
-      grid.appendChild(a);
     });
 
     document.getElementById('yr').textContent = d.getFullYear();
